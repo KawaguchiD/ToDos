@@ -1,5 +1,13 @@
 h1 {
-    font-size:100px; 
-    font-weight:100;
-    
-}
+        width: 100%;
+        font-size: 100px;
+        font-weight: 100;
+        font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    } 
+
+.new-todo {
+        padding:16px 16px 16px 16px;
+        border:none;
+        background:rgba(0, 0, 0, 0.003);
+        box-shadow:inset 0 -2px 1px rgba(0,0,0,0.03);       
+    }
