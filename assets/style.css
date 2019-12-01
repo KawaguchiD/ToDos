@@ -16,10 +16,10 @@ h1 {
         position: relative;
         font-size: 24px;
         box-sizing: border-box;
-        font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
         line-height:1.4em;
         font-family:inherit;
         font-weight:inherit;
+
     }
     ul {
         display: block;
