@@ -23,26 +23,21 @@ const main = () => {
     TodoListItemElement.className = 'todo-list-item'
     TodoListItemElement.innerHTML = `
       <span class="todo-list-item-text">${todoText}</span>
-      <button type="button"  onclick="textdelete()" i class="fas fa-trash" id="todo-list-item-trash"></i>
+      <button  class="fas fa-trash delete" id="todo-list-item-trash"></i>
     `
     TodoListElement.appendChild(TodoListItemElement)
     // Inputの要素を空にする
     event.target.value = ''
   })
 }
-// // 削除機能
-// const deleteButton = getElemetById(`deleteButton`)
-// deleteButton.addEventListener('click', event => {
-//     if (e.target.classList.contains('delete')){
-//         e.target.parentElement.remove();
-//     }
-// });
-// 読み込み完了後に、main(タスク機能)を実行する
 window.addEventListener('load', main)
 
-// 削除機能
-const deleteButton = getElemetById(`deleteButton`)
-deleteButton.addEventListener('click', event => {
+//削除機能
+// const deleteButton = document.getElementById(`.todo-list-item`)
+// deleteButton.addEventListener(`click`,() => {
+//     console.log("delete-OK");
+// })
+.todo-list.addEventListener('click', e => {
     if (e.target.classList.contains('delete')){
         e.target.parentElement.remove();
     }
