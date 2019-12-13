@@ -1,5 +1,3 @@
-  const TodoInputElement = document.querySelector('.new-todo')
-  const TodoListElement = document.querySelector('.todo-list')
 //タスク機能の追加
 const main = () => {
     const TodoInputElement = document.querySelector('.new-todo')
@@ -29,16 +27,11 @@ const main = () => {
     // Inputの要素を空にする
     event.target.value = ''
   })
+  //削除機能
+  TodoListElement.addEventListener(`click`,event => {
+      console.log("hoge")
+          if (event.target.classList.contains('delete')){
+        event.target.parentElement.remove();
+  })
 }
 window.addEventListener('load', main)
-
-//削除機能
-// const deleteButton = document.getElementById(`.todo-list-item`)
-// deleteButton.addEventListener(`click`,() => {
-//     console.log("delete-OK");
-// })
-.todo-list.addEventListener('click', e => {
-    if (e.target.classList.contains('delete')){
-        e.target.parentElement.remove();
-    }
-});
