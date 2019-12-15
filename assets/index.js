@@ -2,6 +2,7 @@
 const main = () => {
     const TodoInputElement = document.querySelector('.new-todo')
     const TodoListElement = document.querySelector('.todo-list')
+    
     TodoInputElement.addEventListener('keyup', event => {
     // Enter Key以外が押された時は何もしない
     if (event.key !== 'Enter') {
@@ -29,9 +30,8 @@ const main = () => {
   })
   //削除機能
   TodoListElement.addEventListener(`click`,event => {
-      console.log("hoge")
-          if (event.target.classList.contains('delete')){
-        event.target.parentElement.remove();
+      var deleteButton = document.getElementById(`todo-list-item`)
+      deleteButton.remove().value;
   })
 }
 window.addEventListener('load', main)

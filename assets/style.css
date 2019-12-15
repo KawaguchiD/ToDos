@@ -25,12 +25,12 @@ h1 {
         border:none;
     }
     
-    .todo-list {
+.todo-list {
         width: 400px;
         margin: auto;
         padding: 0;
       }
-      .todo-list-item {
+.todo-list-item {
         position: relative;
         height: 44px;
         list-style: none;
@@ -39,11 +39,11 @@ h1 {
         background-color:white;
         margin:8px 8px;
       }
-      .todo-list-item-text {
+.todo-list-item-text {
         line-height: 44px;
         font-size:24px;
       }
-      #todo-list-item-trash {
+#todo-list-item-trash {
         position: absolute;
         top:0;
         right: 0;
@@ -51,7 +51,7 @@ h1 {
         text-align:right;
         font-size:200%;
       }
-      .todo-list-item:hover #todo-list-item-trash {
+.todo-list-item:hover #todo-list-item-trash {
         display: block;
       }
 
