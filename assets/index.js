@@ -34,7 +34,7 @@ const main = () => {
   const deleteButton = document.getElementById(`todo-list-item`)
   TodoListElement.addEventListener(`click`,event => {
       console.log("hoge")
-      if(event.target.classList.contains(`hoge`)){
+      if(event.target.classList.contains(`tooo-list`)){
         console.log("OK")
         deleteButton.parentElement.remove();
   }
