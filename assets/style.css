@@ -54,6 +54,21 @@ h1 {
 .todo-list-item:hover #todo-list-item-trash {
         display: block;
       }
+      .serch-todo {
+        padding:16px 180px 16px 60px;
+        position:relative; 
+        background:white;
+        font-size: 24px;
+        box-sizing: border-box;
+        font-family:inherit;
+        font-weight:inherit;
+        color:inherit;
+        display:flex;
+        margin:auto;
+        flex-direction:column;
+        border:none;
+    }
+
 
  
 
