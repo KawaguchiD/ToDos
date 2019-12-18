@@ -21,9 +21,9 @@ const main = () => {
     const TodoListItemElement = document.createElement('li')
     TodoListItemElement.className = 'todo-list-item'
     TodoListItemElement.innerHTML = `
-      <li id="todo-list-item" class="todo-list">
+      <li id="todo-list-item" class="todo-list" input type="checkbox">
         <span class="todo-list-item-text" id="todo-list-item">${todoText}</span>
-        <button  class="fas fa-trash" id="todo-list-item-trash">
+        <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
       </li>
     `
     TodoListElement.appendChild(TodoListItemElement)
@@ -31,13 +31,12 @@ const main = () => {
     event.target.value = ''
   })
   //削除機能
-  const deleteButton = document.getElementById(`todo-list-item`)
+  const deleteButton = document.querySelector(`deleteButton`)
   TodoListElement.addEventListener(`click`,event => {
       console.log("hoge")
-      if(event.target.classList.contains(`tooo-list`)){
-        console.log("OK")
+      if(event.target.classList.contains(`todo-list`)){
+        console.log("OK");
         deleteButton.parentElement.remove();
-  }
-})
+  }})
 }
 window.addEventListener('load', main)
