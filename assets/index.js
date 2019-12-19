@@ -21,22 +21,20 @@ const main = () => {
     const TodoListItemElement = document.createElement('li')
     TodoListItemElement.className = 'todo-list-item'
     TodoListItemElement.innerHTML = `
-      <li id="todo-list-item" class="todo-list" input type="checkbox">
+    
         <span class="todo-list-item-text" id="todo-list-item">${todoText}</span>
         <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
-      </li>
     `
     TodoListElement.appendChild(TodoListItemElement)
     // Inputの要素を空にする
     event.target.value = ''
   })
   //削除機能
-  const deleteButton = document.querySelector(`deleteButton`)
-  TodoListElement.addEventListener(`click`,event => {
-      console.log("hoge")
-      if(event.target.classList.contains(`todo-list`)){
+  TodoListElement.addEventListener(`click`, event => {
+      console.log(event.target)
+      if(event.target.classList.contains(`deleteButton`)){
         console.log("OK");
-        deleteButton.parentElement.remove();
+        event.target.parentElement.remove();
   }})
 }
 window.addEventListener('load', main)
