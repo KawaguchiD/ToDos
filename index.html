@@ -12,16 +12,28 @@
 </head>
 <body>
   <h1>todos</h1>
-  
+  <button class="all-check" id="all-check"></button>
   <input class="new-todo" id ="newTodo" placeholder="What need to be done?">
-  <br>
-  <ul class="todo-list">
+  <ul class="filters">
+    <li>
+      <a href="#/" class="selected">ALL</a>
+    </li>
+    <li>
+      <a href="#/active" class="selected">Active</a>
+    </li>
+    <li>
+      <a href="#/completed" class="selected">Completed</a>
+    </li>
+  </ul>
+
+  <!-- 要素追加 -->
+  <ul class="todo-list" name="hoge">
       <li id="todo-list-item" class="todo-list-item">
-        <input class="checkbox fal fa-check-circle" type="checkbox">
+        <input class="checkbox" type="checkbox">
         <span class="todo-list-item-text" id="todo-list-item">todo</span>
         <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
       </li>
   </ul>
-  <br>
+  
 </body>
 </html>

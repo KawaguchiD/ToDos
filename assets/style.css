@@ -26,7 +26,7 @@ h1 {
     }
     
 .todo-list {
-        width: 400px;
+        width: 491px;
         margin: auto;
         padding: 0;
       }
@@ -68,6 +68,27 @@ h1 {
         flex-direction:column;
         border:none;
     }
+.filters {
+        text-align: center;
+}
+.filters li {
+        text-align: center;
+        text-decoration: none;
+        list-style: none;
+        float:left;
+        padding:5px;
+        margin:auto;
+        display: flex;
+        border: 1px solid;
+        border-radius: 3px;
+        border-color: rgba(175, 47, 47, 0.15);
+}
+.all-check {
+        display: flex;
+        justify-content: flex-end;
+}
+
+
 
 
  

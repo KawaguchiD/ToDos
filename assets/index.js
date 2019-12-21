@@ -21,7 +21,7 @@ const main = () => {
     const TodoListItemElement = document.createElement('li')
     TodoListItemElement.className = 'todo-list-item'
     TodoListItemElement.innerHTML = `
-    
+        <input class="checkbox" type="checkbox">
         <span class="todo-list-item-text" id="todo-list-item">${todoText}</span>
         <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
     `
