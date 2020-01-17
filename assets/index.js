@@ -21,7 +21,7 @@ const main = () => {
     const TodoListItemElement = document.createElement('li')
     TodoListItemElement.className = 'todo-list-item'
     TodoListItemElement.innerHTML = `
-        <input class="checkbox" type="checkbox">
+        <input class="check" type="checkbox">
         <span class="todo-list-item-text" id="todo-list-item">${todoText}</span>
         <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
     `
@@ -31,10 +31,18 @@ const main = () => {
   })
   //削除機能
   TodoListElement.addEventListener(`click`, event => {
-      console.log(event.target)
       if(event.target.classList.contains(`deleteButton`)){
-        console.log("OK");
         event.target.parentElement.remove();
-  }})
+        }})
+  //チェックボックスがチェックされているか否か
+  // var checkbox = Boolean(document.querySelector(`checkbox`))
+  // if(checkbox) {
+  //   console.log("checked")
+  // } else {
+  //   console.log("not checked")
+  // }
+
+//ストレージ上に保存
+localStorage.setItem(`hoge`,TodoListElement)
 }
 window.addEventListener('load', main)
