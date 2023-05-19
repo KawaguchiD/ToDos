@@ -6,8 +6,38 @@ const fetcher = async(url = "https://todolist-team1.deno.dev/api/todo") => {
   const toJson = await fetcher.json();
   return toJson;
 }
+
+const DeleteMethod = async(url, id) => {
+  const Delete = await fetch(`${url}/${id}`, {
+    metod: "DELETE",
+    mode: "cors",
+  })
+  return Delete
+}
+
+const POSTMethod = async(url = "https://todolist-team1.deno.dev/api/todo/", text) => {
+  const Post = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(text),
+    mode: "cors"
+  })  
+  .then(response => {
+    if (!response.ok) {
+      console.error('サーバーエラー');
+    }
+    // ここに成功時の処理を記述
+  })
+  .catch(error => {
+    console.error('通信に失敗しました', error);
+  });
+  return Post
+}
+ 
 // 追加機能
-const AddTask = (Elm1, Elm2) => {
+const AddTask = (Elm1, Elm2, id) => {
   Elm1.addEventListener('keyup', event => {
     // Enter Key以外が押された時は何もしない
         if (event.key !== 'Enter') {
@@ -25,16 +55,23 @@ const AddTask = (Elm1, Elm2) => {
         const todoText = event.target.value
         const TodoListItemElement = document.createElement('li')
         TodoListItemElement.className = 'todo-list-item'
+        TodoListItemElement.setAttribute = id
         TodoListItemElement.innerHTML = `
             <input class="check" type="checkbox">
             <span class="todo-list-item-text" id="todo-list-item">${todoText}</span>
-            <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
+            <button class="fas fa-trash deleteButton" id="todo-list-item-trash">
         `
         Elm2.appendChild(TodoListItemElement)
+
+        // idをあとで振られるpost
+        const TodoArr = {id: "", name: todoText, state: "open"}
+        POSTMethod("https://todolist-team1.deno.dev/api/todo", TodoArr)
+
         // Inputの要素を空にする
         event.target.value = ''
-})}
 
+})}
+// 一度目の描画
 const FirstListRendering = (listdata, parentElm) => {
   // TodoListItemElement.className = 'todo-list-item'
   listdata.forEach(data => {
@@ -44,7 +81,7 @@ const FirstListRendering = (listdata, parentElm) => {
     TodoListItemElement.innerHTML = `
       <input class="check" type="checkbox" ${data.state === "open" ? "checked" : ""}>
       <span class="todo-list-item-text" id="todo-list-item">${data?.name}</span>
-      <button  class="fas fa-trash deleteButton" id="todo-list-item-trash">
+      <button class="fas fa-trash deleteButton todo-list-item-trash" id="${data.id}">
     `
     parentElm.appendChild(TodoListItemElement)
   })
@@ -66,9 +103,12 @@ const main = async() => {
 
   //削除機能
   TodoListElement.addEventListener(`click`, event => {
+      const deleteElm = document.querySelector('.deleteButton')
       if(event.target.classList.contains(`deleteButton`)){
         event.target.parentElement.remove();
-    }})
+      }
+      // DeleteMethod("https://todolist-team1.deno.dev/api/todo/", deleteElm.id)
+  })
   //チェックボックスがチェックされているか否か
   var checkbox = Boolean(isChecked)
   isChecked.addEventListener('click', () => {
