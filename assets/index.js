@@ -1,15 +1,18 @@
 
-const fetcher = async(url = "https://todolist-team1.deno.dev/api/todo") => {
+const GetMethod = async(url = "https://todolist-team1.deno.dev/api/todo") => {
   const fetcher = await fetch(url, {
     method: "GET"
   })
+  .catch(error => {
+    console.error('通信に失敗しました', error);
+  });
   const toJson = await fetcher.json();
   return toJson;
 }
 
 const DeleteMethod = async(url, id) => {
   const Delete = await fetch(`${url}/${id}`, {
-    metod: "DELETE",
+    method: "DELETE",
     mode: "cors",
   })
   return Delete
@@ -93,7 +96,7 @@ const main = async() => {
     const isChecked = document.querySelector(`.checkbox`)
     const TodolistItem = document.querySelector(`.todo-list-item`)
     //fetcher
-    const fetchData = await fetcher();
+    const fetchData = await GetMethod();
     console.log(fetchData)
     // firstRender
     // FirstListRendering(data, TodoListElement)
